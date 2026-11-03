@@ -21,6 +21,8 @@ Agent soubor aktualizuje — i když jen radil a nic neměnil (pak stačí jeden
   nevymýšlí ho.
 - Upraví hlavičku `Aktualizováno:`, sekce Hotovo / Rozpracováno / Další kroky / Rozhodnutí
   a přidá záznam do Logu.
+- **Úkol jen ke čtení** („nic neměň“, rešerše, kontrola): soubor jen čte, nezapisuje.
+- **Subagenti** (Task/Agent) hook nedostávají — paměť po jejich práci zapíše hlavní agent.
 
 ## 4. Co tam patří a co ne
 
@@ -41,7 +43,9 @@ Soubor má být **dostačující, ne úplný**: pod ~400 řádků.
 
 ## 6. Git
 
-Soubor se commituje **spolu se změnou**, ke které patří. V repu, kam nesmí (cizí nebo pracovní
+Agent paměť aktualizuje **před commitem** a commitne ji **ve stejném commitu** jako změnu.
+Commity jen kvůli paměti nedělá: když se v repu nic neměnilo, zápis nechá necommitnutý
+a přibalí ho k dalšímu commitu. V repu, kam nesmí (cizí nebo pracovní
 repo), ho agent přidá do `.git/info/exclude` — zůstane jen lokálně a nesdílí se.
 
 ## Šablona

@@ -5,11 +5,15 @@ v kořeni projektu (kořen git repa; jinak složka session). Každý projekt má
    založ ho (sekce: Cíl repa / Stav a jak spustit / Hotovo / Rozpracováno / Další kroky /
    Rozhodnutí a poznámky / Log). Cíl repa odvoď z README a kódu, nevíš-li, zeptej se.
 2. Na konci každé odpovědi ho aktualizuj — i když jsi jen radil (pak stačí řádek do Logu).
-   Čas zjisti příkazem (`date "+%Y-%m-%d %H:%M"`), nevymýšlej ho. Hlavička: `Aktualizováno: <čas>`.
-   Záznamy s datem; Log ve tvaru `YYYY-MM-DD HH:MM — prompt v kostce → co se udělalo`.
+   Čas zjisti příkazem (`date "+%Y-%m-%d %H:%M"`) a až pak ho zapiš; nevymýšlej ho.
+   Hlavička: `Aktualizováno: <čas>`. Log: `YYYY-MM-DD HH:MM — prompt v kostce → co se udělalo`.
+   Výjimka: úkol jen ke čtení („nic neměň“) → soubor jen čti, nezapisuj.
 3. Piš, co by příští session jinak pracně zjišťovala: stav, rozhodnutí a proč, slepé uličky,
    jak spustit/testovat. Ne obsah kódu, ne to, co je vidět z gitu. Žádná tajemství.
 4. Drž ho pod ~400 řádky: mazej neplatné, opravuj zastaralé, staré hotové slučuj,
    v Logu nech posledních ~30 záznamů (podstatné z nich přesuň do sekcí výše).
-5. Commituj ho spolu se změnou (repo, kam nesmí, ho dá do `.git/info/exclude`).
-Šablona a podrobnosti: https://github.com/MonsterMarian/ClaudeAgentMEMORY/blob/main/PRAVIDLA.md
+5. Git: aktualizuj ho PŘED commitem změny a commitni ho v tom samém commitu. Bez změny v repu
+   ho necommituj zvlášť — přibal ho k dalšímu commitu. Repo, kam nesmí (cizí/pracovní):
+   přidej `AgentMEMORY.md` do `.git/info/exclude`.
+6. Subagenti hook nedostávají: po jejich práci zapíše paměť hlavní agent.
+Plná verze: https://github.com/MonsterMarian/ClaudeAgentMEMORY/blob/main/PRAVIDLA.md

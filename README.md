@@ -50,7 +50,7 @@ do existujícího objektu — nic nepřepisuj):
         "hooks": [
           {
             "type": "command",
-            "command": "cat ~/.claude/agent-memory-pravidlo.md",
+            "command": "[ -n \"$AGENT_MEMORY_OFF\" ] || cat ~/.claude/agent-memory-pravidlo.md",
             "timeout": 10
           }
         ]
@@ -60,9 +60,10 @@ do existujícího objektu — nic nepřepisuj):
 }
 ```
 
-Na Windows Claude Code spouští hooky přes Git Bash (když je nainstalovaný), takže `cat` funguje.
-Bez Git Bashe běží hook v PowerShellu, kde Windows PowerShell 5.1 čte soubor jako ANSI
-a čeština se rozbije — pak použij `"command": "Get-Content -Encoding UTF8 ~/.claude/agent-memory-pravidlo.md"`.
+Příkaz je pro bash (Linux, macOS; na Windows Claude Code spouští hooky přes Git Bash, když je
+nainstalovaný). Bez Git Bashe běží hook v PowerShellu — tam použij
+`"command": "if (-not $env:AGENT_MEMORY_OFF) { Get-Content -Encoding UTF8 ~/.claude/agent-memory-pravidlo.md }"`
+(Windows PowerShell 5.1 by bez `-Encoding UTF8` rozbil češtinu).
 
 **3. Ověř**
 
@@ -78,10 +79,15 @@ nebo session restartuj.
 - **Výjimka pro složku** (např. pracovní repa, kam se soubor nesmí commitovat): přidej
   do pravidla řádek typu
   `V <cesta> AgentMEMORY.md necommituj — přidej ho do .git/info/exclude.`
-- **Vypnutí:** smaž hook ze `settings.json` (nebo ho vypni přes `/hooks`).
+- **Vypnutí pro jedno spuštění:** nastav proměnnou `AGENT_MEMORY_OFF=1`. Hodí se pro skripty
+  a pomocná volání `claude -p` (rešerše, kontrola, práce v dočasné složce) — jinak by i ta
+  dostala pravidlo a četla nebo zakládala `AgentMEMORY.md` zbytečně.
+  Bash: `AGENT_MEMORY_OFF=1 claude -p "…"`, PowerShell: `$env:AGENT_MEMORY_OFF=1; claude -p "…"`.
+- **Vypnutí úplně:** smaž hook ze `settings.json` (nebo ho vypni přes `/hooks`).
 
 ## Omezení
 
 - Je to pokyn, ne vynucení — agent ho dodrží skoro vždy, ale ne zaručeně.
 - Pravidlo (~20 řádků) jde do kontextu u každého promptu.
 - Funguje jen v Claude Code (jiní agenti hooky Claude Code nečtou).
+- Hook dostává jen hlavní session, ne subagenti — paměť po nich zapisuje hlavní agent.
