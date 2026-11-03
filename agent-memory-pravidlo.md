@@ -6,7 +6,8 @@ v kořeni projektu (kořen git repa; jinak složka session). Každý projekt má
    Rozpracováno / Další kroky / Rozhodnutí a poznámky / Log). Cíl repa odvoď z README a kódu.
 2. Zapisuj JEN když je to důležité pro příští session: změna v repu, hotová/rozdělaná práce,
    rozhodnutí, nový poznatek nebo past. Na pouhou otázku, vysvětlení, rešerši nebo „nic neměň“
-   nezapisuj nic — ani řádek do Logu. Když zapisuješ: čas zjisti příkazem
+   nezapisuj nic — ani řádek do Logu. Před zápisem si odpověz: změnilo se v repu něco, padlo
+   rozhodnutí, nebo je tu nová past? Když ne, NEZAPISUJ. Když zapisuješ: čas zjisti příkazem
    (`date "+%Y-%m-%d %H:%M"`) a až pak ho zapiš; nevymýšlej ho. Hlavička `Aktualizováno: <čas>`,
    Log: `YYYY-MM-DD HH:MM — prompt v kostce → co se udělalo`.
 3. Piš, co by příští session jinak pracně zjišťovala: stav, rozhodnutí a proč, slepé uličky,
