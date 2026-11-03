@@ -1,5 +1,5 @@
 # AgentMEMORY — ClaudeAgentMEMORY
-Aktualizováno: 2026-11-03 11:28
+Aktualizováno: 2026-11-03 13:58
 
 ## Cíl repa
 Veřejně sdílitelné nastavení paměti projektu pro Claude Code: pravidlo `AgentMEMORY.md`
@@ -20,8 +20,10 @@ vkládané hookem `UserPromptSubmit` ke každému promptu, aby šlo dělat nové
   nebo `Get-Content -Encoding UTF8`.
 - 2026-11-03 — AGENT_MEMORY_OFF: Slave spouští desítky pomocných `claude -p` (v Tempu bylo 82 sessions `slave-oneshot-*`); bez vypínače by každá dostala pravidlo.
 - 2026-11-03 — paměť jen ve stejném commitu jako změna: ve Slave byly 3 z 5 commitů s pamětí jen kvůli paměti.
+- 2026-11-03 — zápis jen když je to důležité (změna, rozhodnutí, rozdělaná práce), ne po každém promptu; na otázky nic — přání uživatele (šetří tokeny a šum v Logu).
 - Autorova lokální verze pravidla (`~/.claude/agent-memory-pravidlo.md`) má navíc výjimku pro složku Projekty.
 
 ## Log (posledních ~30)
 - 2026-11-03 11:12 — README + pravidla do nového repa → README, PRAVIDLA.md, agent-memory-pravidlo.md, AgentMEMORY.md.
 - 2026-11-03 11:28 — změnit, co dává smysl z kritiky ve Slave → pravidlo, PRAVIDLA, README (vypínač, commit, čtení, subagenti).
+- 2026-11-03 13:58 — zapisovat jen důležité, ne po každém promptu → pravidlo, PRAVIDLA (tabulka kdy zapsat), README.

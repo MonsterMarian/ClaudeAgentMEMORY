@@ -11,17 +11,26 @@ Každý projekt má vlastní soubor — paměti různých projektů se nemíchaj
 ## 2. Začátek session
 
 Agent si `AgentMEMORY.md` přečte **dřív, než začne pracovat**. Když neexistuje, založí ho
-podle šablony níže. Cíl repa odvodí z README a kódu; když si není jistý, zeptá se.
+podle šablony níže — ale až ve chvíli, kdy má co zapsat (na pouhou otázku ho nezakládá).
+Cíl repa odvodí z README a kódu; když si není jistý, zeptá se.
 
-## 3. Konec každé odpovědi
+## 3. Kdy zapisovat — jen když je to důležité
 
-Agent soubor aktualizuje — i když jen radil a nic neměnil (pak stačí jeden řádek do Logu).
+Agent **nezapisuje po každém promptu**. Zapisuje jen to, co by příští session chyběla:
 
-- Čas zjistí příkazem (`date "+%Y-%m-%d %H:%M"`, v PowerShellu `Get-Date -Format "yyyy-MM-dd HH:mm"`),
-  nevymýšlí ho.
-- Upraví hlavičku `Aktualizováno:`, sekce Hotovo / Rozpracováno / Další kroky / Rozhodnutí
-  a přidá záznam do Logu.
-- **Úkol jen ke čtení** („nic neměň“, rešerše, kontrola): soubor jen čte, nezapisuje.
+| Zapsat | Nezapisovat |
+|---|---|
+| změna v repu (kód, konfigurace, docs) | pouhá otázka a odpověď |
+| hotová nebo rozdělaná práce | vysvětlení, rada, rešerše |
+| rozhodnutí uživatele a proč | kontrola nebo review bez změny |
+| nový poznatek, slepá ulička, past | úkol „nic neměň“ |
+
+Když zapisuje:
+
+- Čas zjistí příkazem (`date "+%Y-%m-%d %H:%M"`, v PowerShellu `Get-Date -Format "yyyy-MM-dd HH:mm"`)
+  a až pak ho zapíše; nevymýšlí ho.
+- Upraví hlavičku `Aktualizováno:`, dotčené sekce (Hotovo / Rozpracováno / Další kroky /
+  Rozhodnutí) a přidá záznam do Logu.
 - **Subagenti** (Task/Agent) hook nedostávají — paměť po jejich práci zapíše hlavní agent.
 
 ## 4. Co tam patří a co ne

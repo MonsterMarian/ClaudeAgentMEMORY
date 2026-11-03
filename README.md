@@ -9,7 +9,8 @@ každou práci **novou session**. Jenže nová session neví, co se v projektu d
 
 Tohle řešení to spojí: v kořeni každého projektu vzniká malý soubor **`AgentMEMORY.md`**
 (cíl repa, stav, hotovo, rozpracováno, rozhodnutí, log s datem a časem). Claude Code ho
-na začátku session přečte a po každé odpovědi aktualizuje. Soubor se udržuje malý
+na začátku session přečte a aktualizuje, když se stane něco důležitého (změna v repu,
+rozhodnutí, rozdělaná práce) — na pouhé otázky nezapisuje. Soubor se udržuje malý
 (pod ~400 řádků) — agent mazání a slučování dělá sám.
 
 ## Jak to funguje

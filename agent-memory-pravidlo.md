@@ -2,12 +2,13 @@
 Uživatel dělá vždy novou session (žádné /resume). Souvislost mezi sessions drží `AgentMEMORY.md`
 v kořeni projektu (kořen git repa; jinak složka session). Každý projekt má vlastní.
 1. První prompt session: přečti `AgentMEMORY.md` dřív, než začneš pracovat. Když neexistuje,
-   založ ho (sekce: Cíl repa / Stav a jak spustit / Hotovo / Rozpracováno / Další kroky /
-   Rozhodnutí a poznámky / Log). Cíl repa odvoď z README a kódu, nevíš-li, zeptej se.
-2. Na konci každé odpovědi ho aktualizuj — i když jsi jen radil (pak stačí řádek do Logu).
-   Čas zjisti příkazem (`date "+%Y-%m-%d %H:%M"`) a až pak ho zapiš; nevymýšlej ho.
-   Hlavička: `Aktualizováno: <čas>`. Log: `YYYY-MM-DD HH:MM — prompt v kostce → co se udělalo`.
-   Výjimka: úkol jen ke čtení („nic neměň“) → soubor jen čti, nezapisuj.
+   založ ho až ve chvíli, kdy máš co zapsat (sekce: Cíl repa / Stav a jak spustit / Hotovo /
+   Rozpracováno / Další kroky / Rozhodnutí a poznámky / Log). Cíl repa odvoď z README a kódu.
+2. Zapisuj JEN když je to důležité pro příští session: změna v repu, hotová/rozdělaná práce,
+   rozhodnutí, nový poznatek nebo past. Na pouhou otázku, vysvětlení, rešerši nebo „nic neměň“
+   nezapisuj nic — ani řádek do Logu. Když zapisuješ: čas zjisti příkazem
+   (`date "+%Y-%m-%d %H:%M"`) a až pak ho zapiš; nevymýšlej ho. Hlavička `Aktualizováno: <čas>`,
+   Log: `YYYY-MM-DD HH:MM — prompt v kostce → co se udělalo`.
 3. Piš, co by příští session jinak pracně zjišťovala: stav, rozhodnutí a proč, slepé uličky,
    jak spustit/testovat. Ne obsah kódu, ne to, co je vidět z gitu. Žádná tajemství.
 4. Drž ho pod ~400 řádky: mazej neplatné, opravuj zastaralé, staré hotové slučuj,
